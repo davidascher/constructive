@@ -10,9 +10,27 @@ var Comment = React.createClass({
     var rawMarkup = converter.makeHtml(this.props.children.toString());
     return (
       <div className="comment">
-        <h2 className="commentAuthor">{this.props.author}</h2>
-        <span dangerouslySetInnerHTML={{__html: rawMarkup}} />
+        <div className="demo-card-event mdl-card mdl-shadow--2dp">
+          <div className="mdl-card__title mdl-card--expand">
+          <div className="card_contents">
+            <h4>
+              {this.props.author}:
+            </h4>
+            <h3>  
+            <span dangerouslySetInnerHTML={{__html: rawMarkup}} />
+            </h3>
+          </div>
+          </div>
+          <div className="mdl-card__actions mdl-card--border">
+            <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+              Thank
+            </a>
+            <div className="mdl-layout-spacer"></div>
+            <i className="material-icons">face</i>
+          </div>
+        </div>
       </div>
+
     );
   }
 });
@@ -40,10 +58,18 @@ var CommentForm = React.createClass({
 
   render: function() {
     return (
-      <form className="commentForm" onSubmit={this.handleSubmit}>
-        <input type="text" placeholder="Your name" ref="author" />
-        <input type="text" placeholder="Say something..." ref="text" />
-        <input type="submit" value="Post" />
+      <form action="#" className="commentForm" onSubmit={this.handleSubmit}>
+        <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input className="mdl-textfield__input" ref="author" type="text" id="author"/>
+          <label className="mdl-textfield__label" for="author">Your name</label>
+        </div>
+        <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input className="mdl-textfield__input" ref="text" type="text" id="text"/>
+          <label className="mdl-textfield__label" for="text">Appreciation</label>
+        </div>
+        <button type="submit" onclick={this.handleSubmit}className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+          Offer
+        </button>
       </form>
     );
   }
@@ -73,7 +99,6 @@ var CommentBox = React.createClass({
   render: function() {
     return (
       <div className="commentBox">
-        <h1>Comments</h1>
         <CommentList data={this.state.data} />
         <CommentForm onCommentSubmit={this.handleCommentSubmit} />
       </div>

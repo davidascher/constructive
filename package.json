@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify src/app.js -o lib/app.js   -t [ babelify --presets [ es2015 react ] ]"
+    "build": "cp node_modules/reactfire/dist/reactfire.min.js lib/reactfire.min.js && browserify src/app.js -o lib/app.js   -t [ babelify --presets [ es2015 react ] ]",
+    "watch": "cp node_modules/reactfire/dist/reactfire.min.js lib/reactfire.min.js && watchify src/app.js -o lib/app.js   -t [ babelify --presets [ es2015 react ] ]",
+    "livereload": "livereloadify src",
+    "static": "static .",
+    "start": "npm run watch & npm run livereload & npm run static",
+    "deploy": "surge -p . -d constructive.surge.sh"
   },
   "repository": {
     "type": "git",
@@ -23,7 +28,8 @@
     "babel-preset-react": "^6.3.13",
     "babelify": "^7.2.0",
     "reactfire": "^0.5.1",
-    "showdown": "^1.3.0"
+    "showdown": "^1.3.0",
+    "watchify": "^3.6.1"
   },
   "dependencies": {
     "react": "^0.14.5",
