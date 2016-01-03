@@ -31,6 +31,19 @@
   display: inline-block;
 }
 
+.commentBox {
+  /*margin-top: 10em;*/
+}
+.commentForm {
+  padding-left: 2em;
+}
 .card_contents {
   display: inline-block;
+}
+
+.kinds {
+  padding-top: 1em;
+}
+.kinds label {
+  padding-right: 1em;
 }
