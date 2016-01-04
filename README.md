@@ -6,5 +6,6 @@ TODO:
 
 - [ ] figure out why logging isn't persistent
 - [ ] figure out if firebase's oauth whitelisting makes it impossible to use in a self-serve model
+- [ ] make it take less horizontal space for ghost embedding.
 - [ ] demo wordpress plugin or other way to make it work in wordpress
 - [ ] write blog post #2.
